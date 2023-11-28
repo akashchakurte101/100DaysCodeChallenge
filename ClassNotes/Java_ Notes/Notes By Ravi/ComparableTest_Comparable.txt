@@ -1,0 +1,86 @@
+package com.hdfc.collections;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+
+class Person implements Comparable<Person> {
+    Integer id;
+    String name;
+    int age;
+
+    public Person(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    // 0 both are same
+    // negative a is less than b
+    //postive a is more than b
+
+    @Override
+    public int compareTo(Person anotherPerson) {
+        //return this.getName().compareTo(anotherPerson.getName());  //String
+        //return this.getId().compareTo(anotherPerson.getId());  //Wrapper Number Classes,
+
+        if (this.getAge() == anotherPerson.getAge()) {
+            return 0;
+        } else if (this.getAge() < anotherPerson.getAge()) {
+            return -1;
+        } else {
+            return +1;
+        }
+    }
+}
+
+public class ComparableTest {
+
+    public static void main(String[] args) {
+
+        //Comparable
+        //Number
+        //1 < 2 < 3 < 100 < 102 < 500;
+        //String
+        //A < B < C < Z ASCII
+        //a< b < c < Z ASCII
+
+        //Person cannot be cast to class java.lang.Comparable
+        List<Person> persons = new ArrayList<>();
+        persons.add(new Person(3, "Sunny", 50));
+        persons.add(new Person(2, "Gunny", 50));
+        persons.add(new Person(1, "Bunny", 10));
+        persons.add(new Person(5, "Hunny", 30));
+        persons.add(new Person(4, "Runny", 40));
+
+
+        System.out.println("before:" + persons);
+        Collections.sort(persons);
+        System.out.println("after:" + persons);
+
+
+    }
+}
+

@@ -1,0 +1,31 @@
+package com.hdfc.collections;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ComparableTest {
+
+    public static void main(String[] args) {
+
+        //Comparable
+        //Number
+        //1 < 2 < 3 < 100 < 102 < 500;
+        //String
+        //A < B < C < Z ASCII
+        //a< b < c < Z ASCII
+
+        List<String> numbers = new ArrayList<>();
+        numbers.add("aunny");
+        numbers.add("hummy");
+        numbers.add("Sunny");
+        numbers.add("Ginny");
+        numbers.add("Hunny");
+
+        System.out.println("before:" + numbers);
+        Collections.sort(numbers);
+        System.out.println("after:" + numbers);
+
+    }
+}
+
