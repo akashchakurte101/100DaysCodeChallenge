@@ -1,0 +1,23 @@
+public class ElementPresentInArray {
+    public static boolean findPerticularElementInArray(int[] array,int e){
+        boolean b=false;
+        for(int i:array){
+            if(i==e){
+                b=true;
+                break;
+            }
+        }
+        return b;
+    }
+    public static void main(String[] args) {
+        int tofind=10;
+        boolean element=findPerticularElementInArray(new int[]{100,2,3,102},tofind);
+        if(element!=false){
+            System.out.println(tofind+" number is present in given Array");
+        }
+        else {
+            System.out.println(tofind+" number is not present in given Array");
+        }
+    }
+
+}
