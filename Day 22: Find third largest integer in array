@@ -1,0 +1,13 @@
+public class ThirdLargestNumber {
+    public static void thirdLargestNumber(int[] array){
+        TreeSet<Integer> set=new TreeSet<>();
+        for(int a:array){
+            set.add(a);
+        }
+        ArrayList<Integer> list=new ArrayList<>(set.descendingSet());
+        System.out.println("Third largest number:"+list.get(2));
+    }
+    public static void main(String[] args) {
+        thirdLargestNumber(new int[]{100,2,3,102});
+    }
+}
