@@ -1,0 +1,19 @@
+public class SortStringBasedOnNumber {
+    public static void main(String[] args) {
+        String str="Mahalaxmi2 Shree1 Prasann3";
+        System.out.println(printCorrectSentence(str));;
+    }
+    public static String printCorrectSentence(String str){
+        String[] s=str.split(" ");
+        String[] ways=new String[s.length];
+        for (String s1:s){
+            System.out.println(s1);
+            System.out.println(s1.length());
+            int i=Character.getNumericValue(s1.charAt(s1.length()-1));
+            System.out.println(i);
+            ways[i-1]=s1.substring(0,s1.length()-1);
+        }
+
+        return  String.join(" ",ways);
+    }
+}
