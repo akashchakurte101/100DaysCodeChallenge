@@ -1,0 +1,38 @@
+public class ValidPallindrome {
+    public static boolean validPalidromeByUsingEqualsMethod(String str){
+        String str1=str.toLowerCase();
+        String str2=  str1.replaceAll("[^a-zA-Z0-9]","");
+        char[] c1=str2.toCharArray();
+        char[] c2=new char[str2.length()];
+        int k=0;
+        for(int i=str2.length()-1; i>=0; i--){
+            c2[k]=str2.charAt(i);
+            k++;
+        }
+        return Arrays.equals(c1,c2);
+    }
+    public static boolean notUsingEquals(String str){
+        String str1=str.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
+        int start=0;
+        int end=str1.length()-1;
+        while (start<end){
+            if(str1.charAt(start)!=str1.charAt(end)){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        boolean b1=validPalidromeByUsingEqualsMethod("race a car");
+        boolean b2=notUsingEquals("race a car");
+        if(b1==true&& b2==true){
+            System.out.println("Valid Palindrome");
+        }
+        else {
+            System.out.println("Not a valid palindrome");
+        }
+    }
+
+}
