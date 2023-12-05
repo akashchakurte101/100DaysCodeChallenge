@@ -1,0 +1,14 @@
+public class LenghtOfString {
+    public static void findDuplicateWordString(String str){
+        char[] c=str.toCharArray();
+        int length=0;
+        for(char ch:c){
+            length++;
+        }
+        System.out.println("lenght of the string is: "+length);
+    }
+    public static void main(String[] args) {
+        findDuplicateWordString("The");
+    }
+
+}
