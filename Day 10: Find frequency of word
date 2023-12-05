@@ -1,0 +1,11 @@
+public class FrequencyOfWord {
+    public static void countOfWords(String s){
+        String[] str=s.split(" ");
+        System.out.println("No of words are: "+str.length);
+    }
+
+    public static void main(String[] args) {
+        countOfWords("Dhanush Gowda, B.Com 3rd Sem student, shines in the U19 International Quadrangular Series");
+    }
+
+}
