@@ -1,0 +1,44 @@
+public class NumberOfVowels {
+    public static void countOfVowelsWithoutDuplicates(String str) {
+        char[] array=str.toCharArray();
+        char[] vowels={'A','E','I','O','U','a','e','i','o','u'};
+        HashSet set=new LinkedHashSet<>();
+        int count=0;
+        for(char c:array){
+            set.add(c);
+        }
+        for (int j=0; j<=vowels.length-1; j++){
+            if(set.contains(vowels[j])){
+                count++;
+            }
+        }
+        System.out.println("Number of vowels:- "+count);
+    }
+
+    public static void countOfVowelsWithDuplicates(String str) {
+        char[] array = str.toCharArray();
+        char[] vowels = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
+        List list = new ArrayList<>();
+        int count = 0;
+        for (char c : array) {
+            list.add(c);
+        }
+// with duplicates
+        for(int i=0; i< list.size();i++) {
+            for (int j = 0; j <= vowels.length - 1; j++) {
+                if (list.get(i).equals(vowels[j])) {
+                    count++;
+                }
+            }
+        }
+        System.out.println("Number of vowels with duplictes:- " + count);
+    }
+
+    public static void main(String[] args) {
+
+        countOfVowelsWithoutDuplicates ("Nagaraj");
+        countOfVowelsWithDuplicates("Nagaraj");
+
+    }
+
+}
