@@ -1,0 +1,10 @@
+public class ConvertStringArrayToString {
+    public static String convertStringArrayToString(String[] s){
+        return String.join(" ",s);
+    }
+    public static void main(String[] args) {
+        String[] array=new String[]{"This","is","IntelIj"};
+        System.out.println(convertStringArrayToString(array));
+    }
+
+}
