@@ -1,0 +1,19 @@
+public class MaxDifferenceInArray {
+    public static void main(String[] args) {
+        System.out.println(maxDiffernce(new int[]{6, 50, 200, 35, 300, 0, 90, 100}));
+    }
+
+    public static int maxDiffernce(int[] a) {
+        int max = 0;
+        int min=0;
+        if(a==null || a.length<2){
+            System.out.println("Array length should be minimum == 2");
+            return -1;
+        }
+        TreeSet<Integer> set=new TreeSet<>();
+        for (int a1:a){
+            set.add(a1);
+        }
+        return set.last()-set.first();
+    }
+}
