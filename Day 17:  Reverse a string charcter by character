@@ -1,0 +1,42 @@
+public class ReverseStringByChar {
+    public static String usingForLoop()
+    {
+        String str="mahalaxmi";
+        char c[]=str.toCharArray();
+        String reverse="";
+        for(int i=str.length()-1; i>=0; i--){
+            reverse=reverse+c[i];
+        }
+        return reverse;
+    }
+
+    public static StringBuffer usingStringBuffer(){
+        String str="mahalaxmi";
+        StringBuffer sB=new StringBuffer(str);
+        StringBuffer reverse=sB.reverse();
+        return reverse;
+    }
+    public static void usingCollection(){
+        String str="mahalaxmi";
+        char c[]=str.toCharArray();
+        ArrayList<Character>  arryList=new ArrayList<>();
+        for (char cha:c) {
+            arryList.add(cha);
+        }
+        Collections.reverse(arryList);
+        ListIterator<Character> itr=arryList.listIterator();
+        System.out.println("Using Collection");
+        while(itr.hasNext()){
+            System.out.print(itr.next());
+        }
+
+    }
+    public static void main(String args[])
+    {
+        System.out.println("Using for Loop: "+usingForLoop());
+        System.out.println("Using String Buffer: "+usingStringBuffer());
+        usingCollection();
+
+    }
+
+}
