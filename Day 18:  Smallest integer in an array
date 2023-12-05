@@ -1,0 +1,15 @@
+public class SmallestInteger {
+    public static void findSmallestAndLargestInteger(int[] array){
+
+        TreeSet<Integer> set=new TreeSet<>();
+        for(int c:array){
+            set.add(c);
+        }
+        System.out.println("Smallest Integer: "+set.first());
+        System.out.println("Largest Intger: "+set.last());
+    }
+    public static void main(String[] args) {
+        findSmallestAndLargestInteger(new int[]{5,0,8,0,5});
+    }
+
+}
