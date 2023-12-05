@@ -1,0 +1,16 @@
+public class LargestIntiger {
+    public static void findLargestNumber(int[] array){
+        int max=0;
+
+        for(int i=0; i<=array.length-1; i++){
+            if(max<array[i]){
+                max=array[i];
+            }
+        }
+        System.out.println("Largest number is: "+max);
+    }
+    public static void main(String[] args) {
+        findLargestNumber(new int[]{5,0,8,0,5});
+    }
+
+}
