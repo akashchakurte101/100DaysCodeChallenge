@@ -1,0 +1,19 @@
+public class FrequencyOfPerticularChar {
+    public static void occurrenceOfCharInStr(String str) {
+        int count=0;
+        System.out.println("Enter the charcter to fid:-");
+        Scanner sc=new Scanner(System.in);
+        char toFind=sc.next().charAt(0);
+        char[] c=str.toCharArray();
+        for(int i=0; i<=c.length-1; i++){
+            if(toFind==c[i]){
+                count++;
+            }
+        }
+        System.out.println("Charcter "+toFind+" is found "+count);
+    }
+    public static void main(String[] args) {
+        occurrenceOfCharInStr("Nagaraj");
+    }
+
+}
