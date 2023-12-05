@@ -1,0 +1,22 @@
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        ArrayList<Integer> arrayList=new ArrayList<>(List.of(1,2,3,4,3));
+        System.out.println("Origin list: "+arrayList);
+        removeDuplicates(arrayList);
+    }
+    public static void removeDuplicates(List<Integer> l){
+        //First solution
+        ArrayList<Integer> newArrayList1=new ArrayList<>();
+        for(int i:l){
+            if(!newArrayList1.contains(i)){
+                newArrayList1.add(i);
+            }
+        }
+        System.out.println("After Removing the duplicates(newArrayList_1): "+newArrayList1);
+        // Second solution
+        Set<Integer> set=new LinkedHashSet<>(l);
+        ArrayList<Integer> newArrayList2=new ArrayList<>(set);
+        System.out.println("After Removing the duplicates(newArrayList_2): "+newArrayList2);
+
+    }
+}
