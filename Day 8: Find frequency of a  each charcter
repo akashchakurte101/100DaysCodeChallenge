@@ -1,0 +1,35 @@
+public class FrequencyOfCharcter {
+    public static void countOfEachCharInStringUsingGetDefaultMethod(String str)
+    {
+        char[] c=str.toCharArray();
+        int count=0;
+        HashMap<Character,Integer> map=new HashMap<>();
+        for(int i=0; i<=c.length-1; i++){
+            map.put(c[i],map.getOrDefault(c[i],0)+1);
+            //    map.put(c[i],map.get(c[i])+1);
+        }
+        System.out.println(map);
+    }
+
+    public static void usingNormapMap(String str)
+    {
+        HashMap<Character,Integer> map=new HashMap<>();
+        char[] c=str.toCharArray();
+        for(char cr:c){
+            if(map.containsKey(cr)){
+                map.put(cr, map.get(cr)+1);
+            }
+            else{
+                map.put(cr,1);
+            }
+        }
+        System.out.println(map);
+    }
+
+    public static void main(String args[])
+    {
+        countOfEachCharInStringUsingGetDefaultMethod("ABAC");
+        usingNormapMap("ABAC");
+    }
+
+}
