@@ -1,0 +1,20 @@
+public class ReverseEachWord {
+    public static String revreseWordsInString()
+    {
+        String str="shree mahalaxmi prasann";
+        System.out.println(str);
+        String[] s=str.split(" ");
+        String reversed="";
+        for(int i=s.length-1; i>=0; i--){
+            reversed=reversed+s[i]+" ";
+        }
+        // Return the converted List
+        return reversed;
+    }
+
+    public static void main(String args[])
+    {
+        String s=revreseWordsInString();
+        System.out.println(s);
+    }
+}
