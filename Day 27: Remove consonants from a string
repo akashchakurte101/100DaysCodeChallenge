@@ -1,0 +1,9 @@
+public class RemoveConsonants {
+    public static void main(String[] args) {
+        System.out.println(removeVowels("Hello world"));
+    }
+    public static String removeConsonants(String s) {
+       String regex="[^aeiouAEIOU]";
+       return s.replaceAll(regex,"");
+    }
+}
