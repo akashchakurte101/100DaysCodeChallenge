@@ -1,0 +1,24 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+
+public class OccurenceOfPattern {
+    public static void main(String[] args) {
+        int i=strStr("sadbutsad","sadd");
+        if(i!=-1){
+            System.out.println("index of the first occurrence of needle in haystack"+i);
+        }
+        else {
+            System.out.println("Their is no occurrence of needle in haystack");
+        }
+
+    }
+    public static int strStr(String haystack, String needle) {
+        int i=-1;
+        Pattern p=Pattern.compile(needle);
+        Matcher m=p.matcher(haystack);
+        if(m.find()){
+            i= m.regionStart();
+        }
+        return i;
+    }
+}
