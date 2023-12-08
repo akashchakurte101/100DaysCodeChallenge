@@ -1,0 +1,13 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/length-of-last-word/
+
+public class LastWordLenght {
+    public static void main(String[] args) {
+        System.out.println(lastWordLenght("Press Shift twice to open the Search Everywhere"));
+    }
+    public static int lastWordLenght(String str) {
+        String[] s=str.split(" ");
+        int i=s.length-1;
+        return s[i].length();
+    }
+}
