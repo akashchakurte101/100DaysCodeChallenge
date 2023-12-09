@@ -1,0 +1,61 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/detect-capital/
+
+class DetectCapitalUse {
+    public static void main(String[] args) {
+        System.out.println(detectCapitalUseByUsing_MatherMethod("PressG"));
+        System.out.println(detectCapitalUseWithoutUsing_MatcherMethod("pressG"));
+    }
+    public static boolean detectCapitalUseByUsing_MatherMethod(String word) {
+           String s1=word.substring(0,1);
+           String s2=word.substring(1);
+        // Case 1: If len is one
+           if(word.length()==1){
+               return  true;  // Single letter is always correct
+           }
+
+        // Case 2: All letters are uppercase
+          if(word.matches("^[A-Z]+$")){
+              System.out.println("first block");
+              return true;
+          }
+       // Case 3: First letter uppercase and remaining letters are lowercase
+          else if(s1.matches("[A-Z]")&&(s2.matches("^[a-z]+$"))){
+              System.out.println("second block");
+              return true;
+          }
+          else {
+               return false;
+         }
+    }
+
+    public static boolean detectCapitalUseWithoutUsing_MatcherMethod(String word){
+        int len=word.length();
+        boolean b=false;
+        // Case 1: If len is one
+        if(len==1){
+            return true; // Single letter is always correct
+        }
+       // case 1: All letters are uppercase
+        if(Character.isUpperCase(word.charAt(0)) && Character.isUpperCase(word.charAt(1))){
+            for (int i=2; i<len; i++){
+                if(!Character.isUpperCase(word.charAt(i))){
+                   return  false;
+                }
+            }
+        }
+        // Case 3: First letter uppercase and remaining letters are lowercase
+        else if(Character.isUpperCase(word.charAt(0)) && !Character.isUpperCase(word.charAt(1))){
+            for (int i=2; i<len; i++){
+                if(Character.isUpperCase(word.charAt(i))){
+                    return  false;
+                }
+            }
+        }
+        else {
+            return false;
+        }
+        return true ;
+
+    }
+}
