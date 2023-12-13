@@ -1,0 +1,16 @@
+📌 For full question and Sample ouput press below link
+📌https://leetcode.com/problems/add-strings/
+
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(addStrings("2","3"));
+    }
+    public static String addStrings(String num1, String num2) {
+            int i=Integer.parseInt(num1);
+            int j=Integer.parseInt(num2);
+            int sum=i+j;
+             return ""+sum+"";
+
+    }
+}
