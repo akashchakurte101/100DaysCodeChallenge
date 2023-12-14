@@ -1,0 +1,28 @@
+📌 For full question and Sample ouput press below link
+📌https://leetcode.com/problems/find-words-containing-character/description/
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(findWordsContaining(new String[]{"abc","bcd","aaaa","cbc"},'a'));
+    }
+    public static List<Integer> findWordsContaining(String[] words, char x) {
+
+        int start=0;
+        int end=0;
+        List<Integer> list=new ArrayList<>();
+        for(int i=0; i<words.length; i++){
+            char[] c=words[i].toCharArray();
+              end=c.length-1;
+              while (end>=0 && start<=end){
+                  if(c[start]==x || c[end]==x){
+                      list.add(i);
+                      break;
+                  }
+                  start++;
+                  end--;
+              }
+        }
+        return list;
+    }
+}
+
