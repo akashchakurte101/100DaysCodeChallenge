@@ -1,0 +1,42 @@
+📌 For full question and Sample ouput press below link
+📌https://leetcode.com/problems/minimum-index-sum-of-two-lists/
+
+public class Main1 {
+    public static void main(String[] args) {
+        String[] str = findRestaurant(new String[]{"Shogun", "Tapioca Express", "Burger King", "KFC"},
+                                      new String[]{"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"});
+        for (String s : str) {
+            System.out.println(s);
+        }
+    }
+    public static String[] findRestaurant(String[] list1, String[] list2) {
+        int minIndexSum = Integer.MAX_VALUE;
+        int non_nullCount = 0;
+        String[] commom_Words = new String[list1.length];
+
+        for (int i = 0; i <= list1.length - 1; i++) {
+            for (int j = 0; j <= list2.length - 1; j++) {
+                if (list1[i].equals(list2[j])) {
+                    if ((i + j) <= minIndexSum) {
+                        minIndexSum = i + j;
+                        commom_Words [i] = list1[i];
+                    }
+                }
+            }
+
+        }
+        for (String s1 :commom_Words ) {
+            if (s1 != null) {
+                non_nullCount++;
+            }
+        }
+        String[] returningThisArray = new String[non_nullCount];
+        for (int i = 0; i < non_nullCount; i++) {
+            if (commom_Words [i] != null) {
+                returningThisArray[i] = commom_Words [i];
+            }
+        }
+        return returningThisArray;
+    }
+
+}
