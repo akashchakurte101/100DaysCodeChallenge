@@ -1,0 +1,29 @@
+public class Main1 {
+    public static void main(String[] args) {
+        dimaondSymobolPattern(5);
+    }
+
+    public static void dimaondSymobolPattern(int n) {
+        for (int row = 0; row < 2* n; row++) {
+            int totalColINRow= row>n ? 2*n-row: row;
+           for(int i=0; i<n-totalColINRow; i++){
+               System.out.print(" ");
+           }
+            for (int col = 0; col < totalColINRow; col++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+     
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+ * * * * 
+  * * * 
+   * * 
+    * 
