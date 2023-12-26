@@ -1,0 +1,31 @@
+public class Main1 {
+    public static void main(String[] args) {
+        m1(5);
+    }
+
+    public static void m1(int n) {
+    for(int row=1; row<=2*n ; row++){
+        int totalcolInRow= row>n? 2*n-row: row;
+        for(int space=1; space<=n-totalcolInRow; space++){
+            System.out.print("  ");
+        }
+        for(int col=totalcolInRow; col>=1; col--){
+            System.out.print(col+" ");
+        }
+        for (int col=2; col<=totalcolInRow; col++){
+            System.out.print(col+" ");
+        }
+        System.out.println();
+    }
+    }
+}
+
+        1 
+      2 1 2 
+    3 2 1 2 3 
+  4 3 2 1 2 3 4 
+5 4 3 2 1 2 3 4 5 
+  4 3 2 1 2 3 4 
+    3 2 1 2 3 
+      2 1 2 
+        1 
