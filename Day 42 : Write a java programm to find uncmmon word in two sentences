@@ -1,0 +1,51 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/uncommon-words-from-two-sentences/
+
+public class Main1 {
+    public static void main(String[] args) {
+        String s1 = "this apple is sweet";
+        String s2 = "this apple is sour";
+
+        String[] uncommon = uncommonFromSentences(s1, s2);
+
+        System.out.println("Uncommon words: " + Arrays.toString(uncommon));
+    }
+
+
+    public static String[] uncommonFromSentences(String s1, String s2) {
+        Map<String, Integer> wordFrequency = new HashMap<>();
+
+        // Split sentences into words and count frequency
+        countWordFrequency(s1, wordFrequency);
+        countWordFrequency(s2, wordFrequency);
+
+        // Identify uncommon words
+        List<String> uncommonWords = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : wordFrequency.entrySet()) {
+            if (entry.getValue() == 1) {
+                uncommonWords.add(entry.getKey());
+            }
+        }
+
+        // Convert list to array
+        return uncommonWords.toArray(new String[0]);
+    }
+
+    private static void countWordFrequency(String sentence, Map<String, Integer> map) {
+        String[] words = sentence.split(" ");
+        for (String word : words) {
+           map.put(word, map.getOrDefault(word, 0) + 1);
+        }
+        
+        //Alternative way of finding frequency
+       /* for(String word:words){
+            if(map.containsKey(word)){
+                map.put(word,map.get(word)+1);
+            }
+            else {
+                map.put(word,1);
+            }
+        }*/
+
+    }
+}
