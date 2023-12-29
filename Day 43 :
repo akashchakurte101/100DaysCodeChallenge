@@ -1,0 +1,39 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/find-words-containing-character/
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(findWordsContaining(new String[]{"leet","code"},'e'));
+        System.out.println(secondSoln(new String[]{"leet","code"},'e'));
+
+    }
+
+    public static List<Integer> findWordsContaining(String[] words, char x) {
+         ArrayList list=new ArrayList();
+         String ch=Character.toString(x);
+         Pattern p=Pattern.compile(ch);
+         for(int i=0; i< words.length; i++){
+             Matcher m=p.matcher(words[i]);
+             if(m.find()){
+                 list.add(i);
+             }
+         }
+         return list;
+    }
+    public static List<Integer> secondSoln(String[] words, char x){
+        ArrayList l=new ArrayList();
+        for(int i=0; i<words.length; i++){
+            int start=0;
+            int end=words[i].length()-1;
+            char[] c=words[i].toCharArray();
+            while(start<end){
+                if(c[start]==x || c[end]==x){
+                    l.add(i);
+                    break;
+                }
+                start++;end--;
+            }
+        }
+        return l;
+    }
+}
