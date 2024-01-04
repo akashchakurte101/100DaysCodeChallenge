@@ -1,0 +1,17 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/minimize-string-length/description/
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(minimizedStringLength("dddaaa"));
+    }
+
+    public static int minimizedStringLength(String s) {
+        Set set = new HashSet();
+        char[] ch = s.toCharArray();
+        for (char c : ch) {
+            set.add(c);
+        }
+        return set.size();
+    }
+}
