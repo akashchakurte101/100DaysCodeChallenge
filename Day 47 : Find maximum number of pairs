@@ -1,0 +1,29 @@
+
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/find-maximum-number-of-string-pairs/
+import java.util.*;
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(maximumNumberOfStringPairs(new String[]{"ab","ba","cc"}));
+    }
+
+
+    public static int maximumNumberOfStringPairs(String[] words) {
+        HashMap<String,Integer> map=new HashMap<>();
+        for(String s:words){
+            String rev=new StringBuilder(s).reverse().toString();
+            if(map.containsKey(rev)){
+                map.put(rev,map.get(rev)+1);
+            }else {
+                map.put(s,0);
+            }
+        }
+        int count=0;
+        Collection<Integer> set=map.values();
+        for(int i:set){
+            count+=i;
+        }
+          return count;
+    }
+}
