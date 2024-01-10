@@ -1,0 +1,24 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/lexicographically-smallest-palindrome/description/
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(makeSmallestPalindrome("egcfe"));
+    }
+
+    public static String makeSmallestPalindrome(String s) {
+        StringBuilder sb=new StringBuilder(s);
+        int start=0;
+        int end=s.length()-1;
+        while(start<=end){
+            if(sb.charAt(start)!=sb.charAt(end)){
+                if(sb.charAt(start)<sb.charAt(end))
+                   sb.setCharAt(end, sb.charAt(start));
+                else
+                    sb.setCharAt(start, sb.charAt(end));
+            }
+            start++;end--;
+        }
+        return sb.toString();
+    }
+}
