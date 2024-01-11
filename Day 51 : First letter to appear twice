@@ -1,0 +1,22 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/first-letter-to-appear-twice/
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(repeatedCharacter("abccbaacz"));
+    }
+
+    public static char repeatedCharacter(String s) {
+        char[] c=s.toCharArray();
+        char ch='0';
+        Map<Character,Integer> map=new LinkedHashMap<>();
+        for(char ch1:c){
+            map.put(ch1,map.getOrDefault(ch1,0)+1);
+            if(map.get(ch1)==2){
+                ch=ch1;
+                break;
+            }
+        }
+        return ch;
+    }
+}
