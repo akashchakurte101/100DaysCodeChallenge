@@ -1,0 +1,21 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/
+
+public class Main1 {
+    public static void main(String[] args) {
+        System.out.println(arrayStringsAreEqual(new String[]{"a", "bc"},new String[]{"ab", "c"}));
+    }
+
+    public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        String s1="";
+        String  s2="";
+
+            for(String str:word1){
+                s1=s1+str;
+            }
+            for(String str:word2){
+                s2=s2+str;
+            }
+        return s1.equals(s2);
+    }
+}
