@@ -1,0 +1,33 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/destination-city/description/
+
+public class Main1 {
+    public static void main(String[] args) {
+       List<String> s1=List.of("B","C");
+       List<String> s2=List.of("C","A");
+      
+        List l=List.of(s1,s2);
+        System.out.println( destCity(l));
+    }
+
+    public static String destCity(List<List<String>> paths) {
+       String s=null;
+       HashSet<Object> c=new HashSet<>();
+       for(List l:paths){
+          for(int i=0; i<l.size()-1; i++){
+              c.add(l.get(i));
+          }
+       }
+
+      for(List l:paths){
+          for(int i=0; i<=l.size()-1; i++){
+             if(!c.contains(l.get(i))){
+                 s=l.get(i).toString();
+             }
+          }
+      }
+
+   return s;
+
+    }
+}
