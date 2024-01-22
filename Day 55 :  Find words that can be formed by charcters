@@ -1,0 +1,33 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println(countCharacters(new String[]{"cat","bt","hat","tree"},"atach"));
+    }
+    public static int countCharacters(String[] words, String chars) {
+       int[] charch=new int[26];
+       for(char ch:chars.toCharArray()){
+          charch[ch-'a']++;
+       }
+        int result=0;
+       for(String word:words){
+           int[] wordChar=new int[26];
+           for(char chr:word.toCharArray()){
+               wordChar[chr-'a']++;
+           }
+           boolean yes=true;
+           for(int i=0; i<26; i++){
+               if(wordChar[i]>charch[i]){
+                   yes=false;
+                   break;
+               }
+           }
+           if(yes==true){
+              result+=word.length();
+
+           }
+       }
+        return result;
+    }
+}
