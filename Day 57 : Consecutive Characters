@@ -1,0 +1,27 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/consecutive-characters/
+
+ TreeSet<Integer> set=new TreeSet<>();
+        StringBuilder sb=new StringBuilder(s);
+        int count=1;
+        for(int i=0; i<sb.length(); i++){
+            if(sb.charAt(i)!='@'){
+                    for(int j=i+1; j<sb.length(); j++){
+                        if(sb.charAt(i)==sb.charAt(j)){
+                            count++;
+                            sb.setCharAt(j,'@');
+                        }else {
+                            count=1;
+                            break;
+                        }
+                        set.add(count);
+                    }
+                }
+        }
+
+        if(set.isEmpty()){
+            return 1;
+        }
+        else
+           return set.last();
+    }
