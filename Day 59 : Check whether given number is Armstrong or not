@@ -1,0 +1,19 @@
+class Main {
+    public static void main(String[] args) {
+        System.out.println(armstrongNumber(153));
+    }
+    public static boolean armstrongNumber(int n) {
+        int value=0;
+        int realValue=n;
+        while(n!=0){
+            int reminder=n%10;
+             value+=reminder*reminder*reminder;
+             n=n/10;
+         }
+        if(value==realValue)
+             return true;
+        else
+            return false;
+
+    }
+}
