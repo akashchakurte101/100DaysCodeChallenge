@@ -1,0 +1,60 @@
+public class DoublyLinkedListCreation {
+    private ListNode head;
+    private ListNode tail;
+    private int length;
+
+    private class ListNode{
+        private int data;
+        private ListNode next;
+        private ListNode previous;
+
+        public ListNode(int data){
+            this.data=data;
+            this.next=null;
+            this.previous=null;
+        }
+    }
+    public boolean isEmpty(){
+        return length == 0;
+    }
+    public void insertFront(int value){
+        ListNode newNode=new ListNode(value);
+        if(isEmpty()){
+            tail=newNode;
+        }else
+        {
+            newNode.next=tail;
+            tail.previous=newNode;
+
+        }
+        head=newNode;
+        length++;
+    }
+
+    public void forwardDirection(){
+        ListNode current=head;
+        while(current!=null){
+            System.out.print(current.data+"-->");
+            current=current.next;
+        }
+        System.out.print("null");
+    }
+
+    public void backwardDirection(){
+        ListNode current=tail;
+        while(current!=null){
+            System.out.print(current.data+"-->");
+            current=current.previous;
+        }
+        System.out.print("null");
+    }
+
+    public static void main(String[] args) {
+        DoublyLinkedListCreation dll=new DoublyLinkedListCreation();
+        dll.insertFront(10);
+        dll.insertFront(20);
+        dll.forwardDirection();
+        System.out.println();
+        dll.backwardDirection();
+    }
+}
