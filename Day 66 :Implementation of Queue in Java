@@ -1,0 +1,58 @@
+import java.util.NoSuchElementException;
+
+public class QueueCreation {
+   private ListNode front;
+   private ListNode rear;
+   private int length;
+   private class ListNode{
+       private int data;
+       private ListNode next;
+       public ListNode(int data){
+           this.data=data;
+           this.next=null;
+       }
+   }
+   public boolean isEmpty(){
+       return length==0;
+   }
+   public void enQueue(int value){
+       ListNode temp=new ListNode(value);
+       if(isEmpty()){
+           front=temp;
+       }else{
+           rear.next=temp;
+       }
+       rear=temp;
+       length++;
+    }
+    public int deQueue(){
+       if(isEmpty()){
+           throw new NoSuchElementException();
+       }
+       int result=front.data;
+       front=front.next;
+       length--;
+       return result;
+    }
+    public void print(){
+       ListNode current=front;
+       while(current!=null){
+           System.out.print(current.data+"-->");
+           current=current.next;
+       }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+        QueueCreation qr=new QueueCreation();
+        qr.enQueue(10);
+        qr.enQueue(20);
+        qr.enQueue(30);
+        qr.print();
+        System.out.println(qr.deQueue());
+        System.out.println(qr.deQueue());
+        System.out.println(qr.deQueue());
+        System.out.println(qr.deQueue());
+       
+    }
+}
