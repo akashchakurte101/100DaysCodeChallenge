@@ -1,0 +1,55 @@
+📌 For full question and Sample ouput press below link
+📌 https://leetcode.com/problems/missing-number/description/
+
+public  class MissingNumber {
+
+    public static void main(String[] args) {
+        int nums[]=new int[]{3,0,1};
+        System.out.println(missingNumber(nums));
+
+    }
+    public static int missingNumber(int[] nums) {
+        /*Binary search approach
+        1. Binary Search: After sorting, the algorithm applies binary search to find the missing number. Here's how the binary search works:
+
+       2. a) Initialization: Initialize two pointers, left and right, to the beginning and end of the array,
+             respectively.
+          b) Midpoint Calculation: Calculate the midpoint index, mid, as the average of left and right.
+          c) Comparison: Compare the value of the element at index mid with its index mid.
+          d) Adjusting the Search Range: If nums[mid] > mid, it means that the missing number must be on the
+            left side of mid,so we adjust right = mid. Otherwise, if nums[mid] == mid,
+            the missing number must be on the right side, so   we adjust left = mid + 1.
+          e) Termination: Repeat the process until left and right converge (i.e., left >= right).
+
+     3. Return Missing Number: Once the binary search loop terminates,
+     left will point to the position where the missing number should be inserted to maintain the sorted order. Therefore, it's also the missing number itself, so we return left.
+         */
+
+//        Arrays.sort(nums);
+//        int left = 0, right = nums.length, mid= (left + right)/2;
+//        while(left<right){
+//            mid = (left + right)/2;
+//            if(nums[mid]>mid)
+//                right = mid;
+//            else
+//                left = mid+1;
+//        }
+//        return left;
+
+       /*
+       From elementary school math, we have a popular math trick which is the sum of 1+2+...+n = n*(n+1)/2,
+       it can be used here. Since we are finding the missing number, just get the sum of all the n number
+       first using the formula, and the minus it to the sum of all the numbers in the array,
+       we get the missing number
+        */
+        Arrays.sort(nums);
+        int n=nums.length;
+        int total=n *(n+1)/2;
+        int sum=0;
+        for(int i:nums){
+            sum+=i;
+        }
+        return total-sum;
+
+    }
+}
