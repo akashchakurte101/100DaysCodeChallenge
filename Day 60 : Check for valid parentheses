@@ -1,31 +1,28 @@
 class Main {
-    public static void main(String[] args) {
-       char c[]=new char[]{'(','{','}','('};
-        System.out.println(validParentheses(c));
+  public static void main(String[] args) {
+        System.out.println(parthensis("[{}]"));
     }
 
-    public static boolean validParentheses(char[] c) {
-        int len=c.length;
-        if (len % 2 != 0) {
-            return false;
-        }
+    public static boolean parthensis(String str){
+        boolean b=false;
+        Stack<Character> stack=new Stack<>();
+        char[] ch=str.toCharArray();
+        for(char c:ch){
+            if(c=='[' ||c=='{' || c=='('){
+                stack.push(c);
+            }
+            else{
+                if(stack.empty())
+                     return false;
 
-        Stack<Character> st = new Stack<>();
-        for (int i = 0; i < c.length; i++) {
-            if (c[i] == '(' || c[i] == '[' || c[i] == '{') {
-                st.push(c[i]);
-            } else {
-                if (st.empty()) {
-                    return false;
-                }
-                char ch = st.pop();
-                if ((c[i] == ')' && ch != '(') ||
-                        (c[i] == ']' && ch != '[') ||
-                        (c[i] == '}' && ch != '{')) {
-                    return false;
+                char chr=stack.pop();
+                if((chr == '[' && c==']') || (chr=='(' && c==')') || (chr=='{' && c=='}')){
+                    b=true;
+                }else{
+                    b=false;
                 }
             }
         }
-        return st.empty();
+        return b;
     }
 }
