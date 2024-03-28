@@ -1,21 +1,27 @@
-public class TwoSum {
-    public static int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsKey(complement)) {
-                return new int[]{map.get(complement), i};
-            }
-            map.put(nums[i], i);
-        }
-        throw new IllegalArgumentException("No two sum solution");
-    }
-
+public class Demo {
     public static void main(String[] args) {
-        int[] nums = {2, 7, 11, 15};
-        int target = 9;
-        int[] result = twoSum(nums, target);
-        System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
+       int [] nums=twoSum(new int[]{2,3,5,1},4);
+       for(int i:nums){
+           System.out.println(i);
+       }
     }
 
+    public static int[] twoSum(int[] a,int target){
+       HashMap<Integer,Integer> map=new HashMap<>();
+      for(int i=0; i<a.length; i++){
+          map.put(a[i],i);
+      }
+      
+       for(int i=0; i<a.length; i++){
+           int soln=target-a[i];
+           if(map.containsKey(soln)){
+              int index=map.get(soln);
+                if(index==i){
+                   continue;
+                }
+               return new int[]{i,index};
+            }
+        }
+       return new int[]{};
+    }
 }
